@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <script src="https://openfpcdn.io/fingerprintjs/v3"></script>
+  <script>
+    FingerprintJS.load().then(fp => {
+      fp.get().then(result => {
+        fetch("/log_fingerprint", {
+          method: "POST",
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(result)
+        });
+      });
+    });
+  </script>
+</head>
+<body><h1>Welcome to the REAL Admin Panel!</h1></body>
+</html>
